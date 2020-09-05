@@ -9,10 +9,11 @@ $output  = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['char'])) {
         $charErr = "Character is required";
+    } else {
+        $char   = validateData($_POST['char']);
+        $output = ord($char);
     }
 
-    $char   = validateData($_POST['char']);
-    $output = ord($char);
 }
 
 ?>
