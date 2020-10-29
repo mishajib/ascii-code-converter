@@ -12,8 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ascErr = "Ascii code is required";
     } else {
         $asc = validateData($_POST['asc']);
-
-        $output = chr($asc);
+        if ($asc < 0 || $asc > 255) {
+            $output = "Invalid ascii code";
+        } else {
+            $output = chr($asc);
+        }
 
     }
 }
